@@ -47,16 +47,16 @@ The API shall therefore have the ability to:
             export DATABASE_URL=postgresql://localhost/flask_api
         ```
 
-On windows:
-    Navigate to project folder using CLI and run 'env.bat' to set environment variables
-    ```
-    \bucketlist>env.bat
-    ```
+    On windows:
+        Navigate to project folder using CLI and run 'env.bat' to set environment variables
+        ```
+        \bucketlist>env.bat
+        ```
 
-On UNIX based os, from project folder run 
-    ```
-    $ source .env
-    ```
+    On UNIX based os, from project folder run 
+        ```
+        $ source .env
+        ```
 
 
 4. Ensure all tests are working
