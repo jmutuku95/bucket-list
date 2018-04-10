@@ -1,5 +1,5 @@
 *.pyc
 *.db
-*/__pycache__/*
 *.bat
+*/__pycache__/*
 migrations/*
