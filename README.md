@@ -19,23 +19,23 @@ The API shall therefore have the ability to:
  
 ## INSTRUCTONS
 * ## Clone this repo
-        ```
+       
         git clone https://jmutuku95@bitbucket.org/jmutuku95/bucketlist.git
-        ```
+        
     cd to the cloned folder
     
 1. Create virtual environmnet and install all requirements in requirements.txt
         ```
-        $ virtualenv -p python3 venv
-        (venv)$ pip install -r requirements.txt
+            $ virtualenv -p python3 venv
+            (venv)$ pip install -r requirements.txt
         ```
 
 2. Set up database and ensure it's running on port 5432
     ## in psql
-       ```
+       
        postgres=# CREATE DATABASE flask_api;
        postgres=# CREATE DATABASE testdb;
-       ```
+       
 
 
 3. Set up environment variables
@@ -52,23 +52,23 @@ The API shall therefore have the ability to:
 
     ## On windows:
         Navigate to project folder using CLI and run 'env.bat' to set environment variables
-        ```
-        \bucketlist>env.bat
-        ```
+        
+            \bucketlist>env.bat
+        
 
     ## On UNIX based os, from project folder run 
-        ```bash
-        $ source .env
-        ```
+        
+            $ source .env
+        
     In project folder after activating virtual environmnet, run the following commands for database managegemnet
-        ``` bash
-        python manage.py db init
-        python manage.py db migrate
-        python manage.py db upgrade
-        ```
+        
+            python manage.py db init
+            python manage.py db migrate
+            python manage.py db upgrade
+        
 4. Ensure all tests are working
     ```
-    python manage.py test
+        python manage.py test
     ```
 5. Run 
     ```
@@ -78,18 +78,18 @@ The API shall therefore have the ability to:
     To change the environment to either 'staging' or 'production' set environment variable 'APP_SETTINGS'
     to either 'staging' or 'production' respectively.
         ```
-        export APP_SETTINGS=staging
+            export APP_SETTINGS=staging
         ```
     or 
         ```
-        export APP_SETTINGS=production
+            export APP_SETTINGS=production
         ```
     
 
 ## API Resources
-  '\auth\register\'   POST    - to register new user, requires email and password arguments
-  '\auth\login\'      POST    - to login existing user, requires email and password
-  '\bucketlists\'     GET     - gets all bucketlists for user
-  '\bucketlists\{id}' GET/PUT/DELETE - gets a specific bucketlist using it's 'id' either for viewing,
+  1. '\auth\register\'   POST    - to register new user, requires email and password arguments
+  2. '\auth\login\'      POST    - to login existing user, requires email and password
+  3. '\bucketlists\'     GET     - gets all bucketlists for user
+  4. '\bucketlists\{id}' GET/PUT/DELETE - gets a specific bucketlist using it's 'id' either for viewing,
                                 editing or deleting depending on HTTP verb used
 
