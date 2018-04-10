@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 import jwt
 from app import db
 
+
 class User(db.Model):
     """This class defines the users table """
 
@@ -11,15 +12,19 @@ class User(db.Model):
 
     # Define the columns of the users table, starting with the primary key
     id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(30), nullable=True)
+    last_name = db.Column(db.String(30), nullable=True)
     email = db.Column(db.String(256), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False)
     bucketlists = db.relationship(
         'Bucketlist', order_by='Bucketlist.id', cascade="all, delete-orphan")
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, first_name=None, last_name=None):
         """Initialize the user with an email and a password."""
         self.email = email
         self.password = Bcrypt().generate_password_hash(password).decode()
+        self.first_name = first_name
+        self.last_name = last_name
 
     def password_is_valid(self, password):
         """

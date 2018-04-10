@@ -121,6 +121,8 @@ def create_app(config_name):
                     return make_response(jsonify(response)), 200
                 else:
                     # Handle GET request, sending back the bucketlist to the user
+                    # this allows users to access others bucketlists by manually typing id.
+                    # fix it
                     response = {
                         'id': bucketlist.id,
                         'name': bucketlist.name,
