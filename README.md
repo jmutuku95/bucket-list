@@ -1,4 +1,6 @@
 # Bucketlist
+This API was developed using guidelines from https://scotch.io/tutorials/build-a-restful-api-with-flask-the-tdd-way
+
 This is an API for a buckelist using flask.
 A bucketlist is a list of all the goals you want to achieve,dreams you want to fulfill and
 life experiences you desire to experience before you die (or hit the bucket). 
@@ -17,53 +19,57 @@ The API shall therefore have the ability to:
  
 ## INSTRUCTONS
 * ## Clone this repo
-    ```
-    git clone https://jmutuku95@bitbucket.org/jmutuku95/bucketlist.git
-    ```
+        ```
+        git clone https://jmutuku95@bitbucket.org/jmutuku95/bucketlist.git
+        ```
     cd to the cloned folder
     
 1. Create virtual environmnet and install all requirements in requirements.txt
-    ```
-    $ virtualenv -p python3 venv
-    (venv)$ pip install -r requirements.txt
-    ```
+        ```
+        $ virtualenv -p python3 venv
+        (venv)$ pip install -r requirements.txt
+        ```
 
 2. Set up database and ensure it's running on port 5432
-   in psql
-   ```
-   postgres=# CREATE DATABASE flask_api;
-   postgres=# CREATE DATABASE testdb;
-   ```
+    ## in psql
+       ```
+       postgres=# CREATE DATABASE flask_api;
+       postgres=# CREATE DATABASE testdb;
+       ```
+
 
 3. Set up environment variables
     NB:edit DATABASE_URL in env.bat, .env and instance/config.py to reflect
        your database url
-       ## Manually
+    ## Manually
         ```
-            ../venv/Scripts/activate
-            export FLASK_APP=run.py
-            export SECRET=some-very-long-string-of-random-characters-CHANGE-TO-YOUR-LIKING
-            export APP_SETTINGS=development
-            export DATABASE_URL=postgresql://localhost/flask_api
+        ../venv/Scripts/activate
+        export FLASK_APP=run.py
+        export SECRET=some-very-long-string-of-random-characters-CHANGE-TO-YOUR-LIKING
+        export APP_SETTINGS=development
+        export DATABASE_URL=postgresql://user@password:localhost/flask_api
         ```
 
-    On windows:
+    ## On windows:
         Navigate to project folder using CLI and run 'env.bat' to set environment variables
         ```
         \bucketlist>env.bat
         ```
 
-    On UNIX based os, from project folder run 
-        ```
+    ## On UNIX based os, from project folder run 
+        ```bash
         $ source .env
         ```
-
-
+    In project folder after activating virtual environmnet, run the following commands for database managegemnet
+        ``` bash
+        python manage.py db init
+        python manage.py db migrate
+        python manage.py db upgrade
+        ```
 4. Ensure all tests are working
     ```
     python manage.py test
     ```
-
 5. Run 
     ```
     flask run
@@ -71,13 +77,13 @@ The API shall therefore have the ability to:
     to test the app in 'development' setting. 
     To change the environment to either 'staging' or 'production' set environment variable 'APP_SETTINGS'
     to either 'staging' or 'production' respectively.
-    ```
-    export APP_SETTINGS=staging
-    ```
+        ```
+        export APP_SETTINGS=staging
+        ```
     or 
-    ```
-    export APP_SETTINGS=production
-    ```
+        ```
+        export APP_SETTINGS=production
+        ```
     
 
 ## API Resources
