@@ -18,7 +18,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     '''Configuration for testing with a separate test db'''
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:kyalo2018@127.0.0.1:5432/testdb"
+    SQLALCHEMY_DATABASE_URI = "postgresql://127.0.0.1:5432/testdb"
     DEBUG = True
 
 
